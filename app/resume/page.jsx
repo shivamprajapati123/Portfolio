@@ -57,13 +57,51 @@ export default function Resume() {
       {!isSmallScreen && <Navbar theme={theme} setTheme={setTheme} />}
       {theme === "dark" && <Particles />}
 
-      <section className="pt-20 px-4 md:px-12 lg:px-24">
+      <section className="pt-20 px-4 md:px-12 lg:px-16">
         <h2 className="text-5xl font-Ovo text-center mt-4 mb-16 animate-fade-in-up">
           My Resume
         </h2>
 
-        {/* Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 animate-fade-in-up">
+        {/* Grid Layout */}{/* Achievements */}
+        <div className="mt-10 mb-10 animate-fade-in-up">
+          <h3
+            className={`text-2xl font-bold mb-6 flex items-center gap-2 ${
+              theme === "dark" ? "text-yellow-300" : "text-gray-700"
+            }`}
+          >
+            <FaTrophy className="text-purple-500" />
+            Achievements
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-5">
+            <ResumeCard
+              title="Web Development Bootcamp"
+              org="by Angela Yu"
+              date="Certificate Available"
+              icon={<FaTrophy />}
+              link="https://drive.google.com/file/d/1YuHbWALZGy3CK-LtRqx10Mbluzz7RcqF/view"
+              theme={theme}
+            />
+            <ResumeCard
+              title="Graph Theory Camp"
+              org="by Algo University"
+              date="Certificate Available"
+              icon={<FaTrophy />}
+              link="https://drive.google.com/file/d/1ZX_Vue4ncZgN_nQ-0Bx2zXVWT6znOKKB/view"
+              theme={theme}
+            />
+            <ResumeCard
+              title="Basketball Secretary"
+              org="Student Gymkhana Recognition"
+              date="2023 – 2024"
+              icon={<FaTrophy />}
+              link="https://drive.google.com/file/d/1-9jUtFSaOqUAm1F0iN2UHlSw_I7Syg1A/view"
+              theme={theme}
+            />
+          </div>
+        </div>
+        <div className="grid grid-cols-1 pb-10 md:grid-cols-2 gap-12 animate-fade-in-up">
+
+          
           {/* Positions of Responsibility */}
           <div>
             <h3
@@ -135,43 +173,7 @@ export default function Resume() {
           </div>
         </div>
 
-        {/* Achievements */}
-        <div className="mt-20 animate-fade-in-up">
-          <h3
-            className={`text-2xl font-bold mb-6 flex items-center gap-2 ${
-              theme === "dark" ? "text-yellow-300" : "text-gray-700"
-            }`}
-          >
-            <FaTrophy className="text-purple-500" />
-            Achievements
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <ResumeCard
-              title="Web Development Bootcamp"
-              org="by Angela Yu"
-              date="Certificate Available"
-              icon={<FaTrophy />}
-              link="https://drive.google.com/file/d/1YuHbWALZGy3CK-LtRqx10Mbluzz7RcqF/view"
-              theme={theme}
-            />
-            <ResumeCard
-              title="Graph Theory Camp"
-              org="by Algo University"
-              date="Certificate Available"
-              icon={<FaTrophy />}
-              link="https://drive.google.com/file/d/1ZX_Vue4ncZgN_nQ-0Bx2zXVWT6znOKKB/view"
-              theme={theme}
-            />
-            <ResumeCard
-              title="Basketball Secretary"
-              org="Student Gymkhana Recognition"
-              date="2023 – 2024"
-              icon={<FaTrophy />}
-              link="https://drive.google.com/file/d/1-9jUtFSaOqUAm1F0iN2UHlSw_I7Syg1A/view"
-              theme={theme}
-            />
-          </div>
-        </div>
+        
       </section>
     </div>
   );
