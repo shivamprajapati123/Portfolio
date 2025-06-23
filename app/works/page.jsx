@@ -6,44 +6,61 @@ import { assets } from "@/assets/assets";
 import { FaGithub } from "react-icons/fa";
 import { useTheme } from "../ThemeProvider";
 
-const ProjectCard = ({ title, description, tech, link, image }) => (
-  <div
-    className="relative group border border-gray-200 rounded-xl overflow-hidden shadow-md bg-white
-    transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-transparent
-    hover:bg-gradient-to-br hover:from-indigo-100 hover:to-pink-100 animate-fade-in-up"
-  >
-    {/* Background Image with blur + zoom on hover */}
+const ProjectCard = ({
+  title,
+  description,
+  tech,
+  link,
+  image,
+  isSmallScreen,
+}) => {
+  const handleCardClick = () => {
+    if (isSmallScreen && link) {
+      window.open(link, "_blank", "noopener,noreferrer");
+    }
+  };
+
+  return (
     <div
-      className="absolute inset-0 bg-cover bg-center transition-all duration-500 group-hover:blur-sm group-hover:scale-110"
-      style={{
-        backgroundImage: `url(${image})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    />
+      className="relative group border border-gray-200 rounded-xl overflow-hidden shadow-md bg-white
+      transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-transparent
+      hover:bg-gradient-to-br hover:from-indigo-100 hover:to-pink-100 animate-fade-in-up"
+      onClick={handleCardClick}
+      style={isSmallScreen ? { cursor: "pointer" } : {}}
+    >
+      {/* Background Image with blur + zoom on hover */}
+      <div
+        className="absolute inset-0 bg-cover bg-center transition-all duration-500 group-hover:blur-sm group-hover:scale-110"
+        style={{
+          backgroundImage: `url(${image})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
 
-    {/* Dark gradient overlay */}
-    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-500 z-0" />
+      {/* Dark gradient overlay */}
+      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-500 z-0" />
 
-    {/* Card content - fade + lift on hover */}
-    <div className="relative z-10 h-full w-full p-6 flex flex-col justify-center items-start text-white opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-8 transition-all duration-500">
-      <h3 className="text-xl font-semibold mb-2 font-Ovo">{title}</h3>
-      <p className="text-sm mb-3 font-Ovo">{description}</p>
-      <div className="text-xs font-medium mb-4 font-Ovo">{tech}</div>
-      {link && (
-        <a
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-white font-semibold text-sm underline hover:text-pink-200 transition"
-        >
-          <FaGithub className="text-base" />
-          View Project
-        </a>
-      )}
+      {/* Card content - fade + lift on hover */}
+      <div className="relative z-10 h-full w-full p-6 flex flex-col justify-center items-start text-white opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-8 transition-all duration-500">
+        <h3 className="text-xl font-semibold mb-2 font-Ovo">{title}</h3>
+        <p className="text-sm mb-3 font-Ovo">{description}</p>
+        <div className="text-xs font-medium mb-4 font-Ovo">{tech}</div>
+        {!isSmallScreen && link && (
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-white font-semibold text-sm underline hover:text-pink-200 transition"
+          >
+            <FaGithub className="text-base" />
+            View Project
+          </a>
+        )}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default function Works() {
   const { theme, setTheme } = useTheme();
@@ -76,6 +93,7 @@ export default function Works() {
             tech="MERN Stack, JWT, MongoDB, REST API"
             link="https://github.com/shivamprajapati123/Job_Portal_Frontend"
             image={assets.job_prtal_img.src}
+            isSmallScreen={isSmallScreen}
           />
           <ProjectCard
             title="Secret API"
@@ -83,6 +101,7 @@ export default function Works() {
             tech="Node.js, Express.js, API, JS"
             link="https://github.com/shivamprajapati123/Secret_API"
             image={assets.secret_img.src}
+            isSmallScreen={isSmallScreen}
           />
           <ProjectCard
             title="To-do Keeper"
@@ -90,6 +109,7 @@ export default function Works() {
             tech="React.js, CSS"
             link="https://github.com/shivamprajapati123/Keepers-To-Do-"
             image={assets.keeper_img.src}
+            isSmallScreen={isSmallScreen}
           />
           <ProjectCard
             title="Code Editor"
@@ -97,6 +117,7 @@ export default function Works() {
             tech="HTML, CSS, JavaScript"
             link="https://github.com/shivamprajapati123/Code_editor"
             image={assets.code_editor_img.src}
+            isSmallScreen={isSmallScreen}
           />
           <ProjectCard
             title="Calculator"
@@ -104,6 +125,7 @@ export default function Works() {
             tech="HTML, CSS, JavaScript"
             link="https://github.com/shivamprajapati123/Calculator"
             image={assets.calculator_img.src}
+            isSmallScreen={isSmallScreen}
           />
           <ProjectCard
             title="Portfolio Website"
@@ -111,6 +133,7 @@ export default function Works() {
             tech="HTML, CSS, JavaScript"
             link="https://github.com/shivamprajapati123/Personal_Portfolio"
             image={assets.portfolio_img.src}
+            isSmallScreen={isSmallScreen}
           />
           <ProjectCard
             title="Drum Kit"
@@ -118,6 +141,7 @@ export default function Works() {
             tech="HTML, CSS, JavaScript"
             link="https://github.com/shivamprajapati123/Drum-Kitt"
             image={assets.drumKit_img.src}
+            isSmallScreen={isSmallScreen}
           />
           <ProjectCard
             title="Food Website"
@@ -125,6 +149,7 @@ export default function Works() {
             tech="HTML, CSS"
             link="https://github.com/shivamprajapati123/Food_website"
             image={assets.foodWebsite_img.src}
+            isSmallScreen={isSmallScreen}
           />
         </div>
       </section>

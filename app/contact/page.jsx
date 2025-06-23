@@ -42,7 +42,9 @@ export default function Contact() {
   return (
     <div
       className={`min-h-screen ${
-        theme === "dark" ? "bg-[#11001F] text-white" : "bg-white text-black"
+        theme === "dark"
+          ? "bg-[#11001F] text-white"
+          : "bg-gradient-to-br from-white via-indigo-50 to-pink-50 text-black"
       }`}
     >
       {!isSmallScreen && <Navbar theme={theme} setTheme={setTheme} />}
@@ -50,7 +52,11 @@ export default function Contact() {
 
       <div
         id="Contact"
-        className="w-11/12 min-h-screen flex flex-col items-center justify-center mx-auto gap-10 pt-24 pb-12 relative z-10"
+        className={`w-11/12 min-h-screen flex flex-col items-center justify-center mx-auto gap-10 pt-24 pb-12 relative z-10 ${
+          theme === "dark"
+            ? ""
+            : "backdrop-blur-md bg-white/80 rounded-2xl shadow-xl border border-gray-200"
+        }`}
       >
         <h2 className="text-center text-5xl font-Ovo mt-5 animate-fade-in-up">
           Contact Me
@@ -58,7 +64,7 @@ export default function Contact() {
 
         <p
           className={`text-center max-w-xl px-4 animate-fade-in-up ${
-            theme === "dark" ? "text-gray-300" : "text-gray-600"
+            theme === "dark" ? "text-gray-300" : "text-gray-700"
           }`}
         >
           Feel free to reach out for collaborations, freelance work, or just a
@@ -70,7 +76,7 @@ export default function Contact() {
           className={`w-full max-w-2xl rounded-xl px-8 py-8 space-y-6 transition-all duration-300 animate-fade-in-up hover:shadow-lg ${
             theme === "dark"
               ? "bg-[#1a0033] border border-purple-900"
-              : "bg-white border border-gray-200"
+              : "bg-white border border-gray-200 shadow-md"
           }`}
         >
           <div className="flex flex-col md:flex-row gap-6">
@@ -79,10 +85,10 @@ export default function Contact() {
               name="name"
               placeholder="Your Name"
               required
-              className={`flex-1 px-4 py-3 rounded-lg transition-all duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 ${
+              className={`flex-1 px-4 py-3 rounded-lg border transition-all duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 ${
                 theme === "dark"
                   ? "bg-[#220044] border-gray-700 text-white focus:ring-yellow-400"
-                  : "bg-white border-gray-300 text-black focus:ring-indigo-500"
+                  : "bg-gray-50 border-gray-300 text-black focus:ring-indigo-400"
               }`}
             />
             <input
@@ -90,10 +96,10 @@ export default function Contact() {
               name="email"
               placeholder="Your Email"
               required
-              className={`flex-1 px-4 py-3 rounded-lg transition-all duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 ${
+              className={`flex-1 px-4 py-3 rounded-lg border transition-all duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 ${
                 theme === "dark"
                   ? "bg-[#220044] border-gray-700 text-white focus:ring-yellow-400"
-                  : "bg-white border-gray-300 text-black focus:ring-indigo-500"
+                  : "bg-gray-50 border-gray-300 text-black focus:ring-indigo-400"
               }`}
             />
           </div>
@@ -103,10 +109,10 @@ export default function Contact() {
             rows="5"
             placeholder="Your Message"
             required
-            className={`w-full px-4 py-3 rounded-lg transition-all duration-300 hover:scale-[1.01] focus:outline-none focus:ring-2 ${
+            className={`w-full px-4 py-3 rounded-lg border transition-all duration-300 hover:scale-[1.01] focus:outline-none focus:ring-2 ${
               theme === "dark"
                 ? "bg-[#220044] border-gray-700 text-white focus:ring-yellow-400"
-                : "bg-white border-gray-300 text-black focus:ring-indigo-500"
+                : "bg-gray-50 border-gray-300 text-black focus:ring-indigo-400"
             }`}
           />
 
@@ -115,7 +121,7 @@ export default function Contact() {
             className={`py-3 px-8 w-max flex items-center justify-between gap-2 rounded-full mx-auto transition-all duration-300 hover:scale-105 shadow-md ${
               theme === "dark"
                 ? "bg-yellow-400 text-black hover:bg-yellow-300"
-                : "bg-black/80 text-white hover:bg-black"
+                : "bg-indigo-600 text-white hover:bg-indigo-700"
             }`}
           >
             Send Message
