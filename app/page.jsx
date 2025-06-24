@@ -6,6 +6,7 @@ import Image from "next/image";
 import { assets } from "@/assets/assets";
 import { Ovo } from "next/font/google";
 import { useTheme } from "./ThemeProvider";
+import { FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
 
 // Import your section components
 import AboutSection from "./about/page";
@@ -91,6 +92,58 @@ export default function Home() {
                 }`}
               />
             </div>
+          </a>
+        </div>
+        <div className="flex gap-6 mt-8 animate-fade-in-up delay-4">
+          {/* Instagram */}
+          <a
+            href="https://www.instagram.com/shivam_prajapatiii_/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`group relative text-2xl transition-transform duration-300 hover:scale-125 ${
+              theme === "dark"
+                ? "text-white hover:text-pink-400"
+                : "text-black hover:text-pink-600"
+            }`}
+          >
+            <FaInstagram />
+            <span className="absolute -top-8 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-all bg-black text-white text-xs px-2 py-1 rounded-full shadow-lg z-10">
+              Instagram
+            </span>
+          </a>
+
+          {/* GitHub */}
+          <a
+            href="https://github.com/shivamprajapati123"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`group relative text-2xl transition-transform duration-300 hover:scale-125 ${
+              theme === "dark"
+                ? "text-white hover:text-gray-300"
+                : "text-black hover:text-gray-700"
+            }`}
+          >
+            <FaGithub />
+            <span className="absolute -top-8 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-all bg-black text-white text-xs px-2 py-1 rounded-full shadow-lg z-10">
+              GitHub
+            </span>
+          </a>
+
+          {/* LinkedIn */}
+          <a
+            href="https://www.linkedin.com/in/shivam-prajapatii/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`group relative text-2xl transition-transform duration-300 hover:scale-125 ${
+              theme === "dark"
+                ? "text-white hover:text-blue-400"
+                : "text-black hover:text-blue-700"
+            }`}
+          >
+            <FaLinkedin />
+            <span className="absolute -top-8 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-all bg-black text-white text-xs px-2 py-1 rounded-full shadow-lg z-10">
+              LinkedIn
+            </span>
           </a>
         </div>
       </div>
